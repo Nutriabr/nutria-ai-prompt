@@ -108,6 +108,14 @@ if engine:
 
         print("Arquivo JSON criado com sucesso: dados_tratados.json")
 
+        # EXPORTANDO PARA EXCEL 
+        df_tratado.to_excel('./output/dados_tratados.xlsx', sheet_name='DadosSensiveis', index=False)
+        print("Arquivo EXCEL criado com sucesso: dados_tratados.xlsx")
+
+        # EXIBE AS PRIMEIRAS TRES LINHAS DA PLANILHA dados_tratados.xlsx
+        df_lido = pd.read_excel('./output/dados_tratados.xlsx', sheet_name='DadosSensiveis')
+        print(df_lido.head())
+
     except Exception as erro:
         print(f"Erro durante o processamento: {erro}")
 
